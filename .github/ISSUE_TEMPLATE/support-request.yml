@@ -1,0 +1,59 @@
+name: Android 客服反馈
+description: 提交飞享 IM Android 安装、登录、IM、钱包、红包或回滚问题
+title: "[Android 反馈] "
+labels:
+  - android-support
+body:
+  - type: dropdown
+    id: category
+    attributes:
+      label: 问题类型
+      options:
+        - 安装或下载
+        - 注册或登录
+        - NIM/IM 消息
+        - 群聊
+        - 钱包
+        - 红包
+        - H5/发现/探索
+        - 朋友圈/媒体/扫一扫
+        - 回滚 APK
+        - 账号安全或协议隐私
+        - 其他
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: 问题描述
+      description: 请说明发生了什么、期望是什么、是否可以稳定复现。
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: 复现步骤
+      description: 例如：打开应用 -> 登录 -> 进入群聊 -> 发送消息失败。
+    validations:
+      required: false
+  - type: input
+    id: app_version
+    attributes:
+      label: 应用版本
+      placeholder: 0.1.0+1 live 20260708-365a92a6
+    validations:
+      required: false
+  - type: input
+    id: android_version
+    attributes:
+      label: Android 系统版本和机型
+      placeholder: Android 14 / Pixel 8
+    validations:
+      required: false
+  - type: checkboxes
+    id: sensitive_notice
+    attributes:
+      label: 敏感信息确认
+      options:
+        - label: 我不会提交 token、nimtoken、短信验证码、支付密码、银行卡完整号码、身份证完整号码、服务器密码、密钥或证书。
+          required: true
