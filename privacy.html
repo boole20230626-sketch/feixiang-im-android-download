@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>
+飞享 IM Android 隐私政策
+</title>
+  <style>
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif; background: #f5f5f5; color: #111; }
+    main { max-width: 820px; margin: 0 auto; padding: 36px 20px; }
+    article { background: #fff; border: 1px solid #e5e5e5; border-radius: 10px; padding: 28px; }
+    a { color: #07a34a; }
+    pre { white-space: pre-wrap; word-break: break-word; font: 14px/1.75 -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif; color: #333; }
+    nav { margin-bottom: 18px; }
+  </style>
+</head>
+<body><main><nav><a href="./">返回下载页</a></nav><article><pre>
+# 飞享 IM Android 隐私政策
+
+生效日期：2026-07-08
+适用版本：Android `0.1.0+1`
+适用环境：当前公开测试分发候选，后端地址 `http://23.26.204.90`
+
+本政策用于说明飞享 IM Android 客户端在登录、即时通讯、联系人、群组、钱包、红包、朋友圈、发现、H5、扫码、媒体消息和通知等功能中的数据处理方式。
+
+## 我们处理的信息
+
+为提供旧 Android 客户端对齐后的基础能力，客户端可能处理以下信息：
+
+- 账号信息：账号、昵称、用户 ID、头像、登录状态、设备标识和客户端版本。
+- 登录凭证：业务 token、IM 登录凭证、云信登录所需运行时配置。客户端不得在普通日志中输出 token、nimtoken、密码或 app secret。
+- 通讯信息：单聊、群聊、会话列表、文本、图片、文件、语音消息、自定义消息和红包领取通知等。
+- 联系人与群组：好友、群成员、群资料、群公告、群文件、群相册和群设置。
+- 钱包与红包：余额、账单、充值、提现、银行卡、支付密码状态、红包发送、领取、过期、退款和流水状态。
+- 内容与互动：签到、收藏、朋友圈、发现/探索入口、H5 页面访问状态和举报反馈。
+- 设备与权限：网络状态、通知状态、相机、录音、图片/文件选择权限和 Android 版本信息。
+
+## 权限用途
+
+| 权限 | 用途 |
+| --- | --- |
+| `INTERNET` | 访问后端接口、云信 IM 服务、H5 白名单页面和媒体资源。 |
+| `ACCESS_NETWORK_STATE` | 判断网络状态，用于登录、消息、H5 和失败提示。 |
+| `POST_NOTIFICATIONS` | Android 13+ 新消息通知和应用提醒。 |
+| `CAMERA` | 扫一扫、二维码识别和图片采集入口。 |
+| `RECORD_AUDIO` | 普通语音消息录制；不代表实时音视频通话已开放。 |
+| `READ_EXTERNAL_STORAGE` / `READ_MEDIA_IMAGES` | 用户主动选择图片或文件时读取内容。 |
+| `WRITE_EXTERNAL_STORAGE` | Android 9 及以下兼容保存用户主动下载或接收的文件。 |
+| `ACCESS_WIFI_STATE` | 网络状态辅助判断和 SDK 兼容需求。 |
+
+当前候选不迁移旧 Android 端的电话拦截、通话记录、系统悬浮窗、应用内安装 APK、全包查询等高敏能力，也不声明相关权限。
+
+## 第三方 SDK
+
+客户端使用云信 IM SDK 提供即时通讯能力。云信 SDK 可能处理 IM 登录、消息收发、连接状态、推送配置和 SDK 运行日志。客户端不得把云信 app secret 放入 APK；运行所需 appkey 优先通过后端接口下发。
+
+## 本地存储与安全
+
+客户端使用安全存储保存登录态和必要凭证。敏感字段不得写入普通日志、崩溃日志、下载页或公开文档。测试环境账号、SSH 密码、签名密码、云信 secret 和后端 secret 不进入客户端仓库。
+
+## 钱包和红包
+
+钱包和红包涉及资金状态。客户端会展示余额、账单、红包和交易状态，并通过后端接口完成校验。充值、提现、绑卡、支付密码、发红包、领红包、退款等行为以服务端结果为准。
+
+## H5 与外部链接
+
+H5/WebView 只允许访问白名单或后端下发的受控入口。客户端应阻断敏感参数泄露，不在 H5 URL 中拼接 token、nimtoken、密码或支付凭证。
+
+## 反馈与联系
+
+如遇安装、登录、IM 连接、钱包、红包、H5 或回滚问题，可通过下载页提供的反馈入口提交问题。
+
+## 变更
+
+如果切换生产后端、生产云信配置或新增高敏权限，本政策必须更新，并重新执行 Android 构建、权限和回归验证。
+
+</pre></article></main></body>
+</html>
